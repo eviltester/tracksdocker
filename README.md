@@ -1,7 +1,64 @@
 Tracks
 ======
 
-Docker build resources for Get On Tracks GTD app 
+A Docker build resources for Get On Tracks GTD app.
+
+Forked form https://github.com/eyecreate/tracks
+
+## To Use via Docker
+
+Build the image locally, then run it:
+
+```
+docker build --tag 'testtracks' .
+```
+
+Then run it:
+
+```
+docker run -p 80:80 "testtracks"
+```
+
+or
+
+```
+docker run -d --name=tracks -p 80:80 "testtracks"
+```
+
+Then visit:
+
+http://localhost:80
+
+If you find that you can't login or can't create an admin session then try opening the link in incognito mode... if that works then delete the "_tracksapp_session" cookie in your normal browser window.
+
+
+## To use via Docker Compose
+
+Docker compose is using the official release images for mariadb and tracks.
+
+```
+docker compose up
+```
+
+Create the database
+
+```
+docker exec -it tracksdocker-web-1 sh
+```
+
+Then in the shell
+
+```
+bundle exec rake db:reset
+```
+
+Then visit:
+
+```
+http://localhost:3000
+```
+
+
 
 Tracks
 ======

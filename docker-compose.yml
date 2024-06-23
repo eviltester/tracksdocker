@@ -1,0 +1,35 @@
+volumes:
+  tracks-data:
+services:
+  db:
+    image: mariadb
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_DATABASE: tracks
+      MYSQL_USER: tracks
+      MYSQL_PASSWORD: password
+    volumes:
+      - tracks-data:/var/lib/mysql
+      - ./mariadbsetup:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+  web:
+    image: tracksapp/tracks:2.6.1
+    environment:
+      RAILS_ENV: production
+      RAILS_SERVE_STATIC_FILES: TRUE
+      RAILS_LOG_TO_STDOUT: TRUE
+      DATABASE_TYPE: mysql2
+      DATABASE_ENCODING: utf8
+      DATABASE_NAME: tracks
+      DATABASE_USERNAME: tracks
+      DATABASE_HOST: db
+      DATABASE_PORT: 3306
+      DATABASE_PASSWORD: password
+    volumes:
+      - ${VOLUME:-.}/config/database.docker.yml:/app/config/database.yml:Z
+      - ${VOLUME:-.}/config/site.docker.yml:/app/config/site.yml:Z
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
