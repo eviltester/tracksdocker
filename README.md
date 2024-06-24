@@ -5,24 +5,35 @@ A Docker build resources for Get On Tracks GTD app.
 
 Forked form https://github.com/eyecreate/tracks
 
-## To Use via Docker
+
+## To Use via Docker from Docker Hub
+
+```
+docker run -p 80:80 eviltester/tracks
+```
+
+https://hub.docker.com/r/eviltester/tracks/tags
+
+
+
+## To Use via Docker Locally
 
 Build the image locally, then run it:
 
 ```
-docker build --tag 'testtracks' .
+docker build --tag 'tracks' .
 ```
 
 Then run it:
 
 ```
-docker run -p 80:80 "testtracks"
+docker run -p 80:80 "tracks"
 ```
 
 or
 
 ```
-docker run -d --name=tracks -p 80:80 "testtracks"
+docker run -d --name=tracks -p 80:80 "tracks"
 ```
 
 Then visit:
@@ -32,7 +43,7 @@ http://localhost:80
 If you find that you can't login or can't create an admin session then try opening the link in incognito mode... if that works then delete the "_tracksapp_session" cookie in your normal browser window.
 
 
-## To use via Docker Compose
+## To use via Docker Compose Locally
 
 Docker compose is using the official release images for mariadb and tracks.
 

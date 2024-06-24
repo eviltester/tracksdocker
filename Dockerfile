@@ -1,7 +1,5 @@
 FROM ubuntu:14.04
 
-MAINTAINER Stig Tore Aannoe <staannoe@gmail.com>
-
 RUN apt-get update
 
 RUN apt-get install -y ruby rubygems-integration bundler sqlite3 libsqlite3-dev build-essential curl unzip
