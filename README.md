@@ -7,6 +7,29 @@ Forked form https://github.com/eyecreate/tracks
 
 Remember to have Docker Desktop running prior to running any of the Docker commands below.
 
+## Versions
+
+The `versions` directory contains docker files to build specific versions of tracks.
+
+These download the zip files from the tracks archive during the build process.
+
+Readme files are contained in the folders.
+
+These have been released as tagged versions to docker hub.
+
+
+### Tracks v 2.3.0
+
+```
+docker run -p 80:80 eviltester/tracks:2.3.0
+```
+
+### Tracks v 2.2.3
+
+```
+docker run -p 80:80 eviltester/tracks:2.2.3
+```
+
 
 ## To Use via Docker from Docker Hub
 
@@ -84,30 +107,8 @@ http://localhost:3000
 
 
 
-## Versions
 
-The `versions` directory contains docker files to build specific versions of tracks.
-
-These download the zip files from the tracks archive during the build process.
-
-Readme files are contained in the folders.
-
-These have been released as tagged versions to docker hub.
-
-
-### Tracks v 2.3.0
-
-```
-docker run -p 80:80 eviltester/tracks:2.3.0
-```
-
-### Tracks v 2.2.3
-
-```
-docker run -p 80:80 eviltester/tracks:2.2.3
-```
-
-Tracks 2.3.0
+Tracks
 ======
 
 Tracks is a web-based application modelling Allen's Getting Things Done methodology.
