@@ -5,6 +5,8 @@ A Docker build resources for Get On Tracks GTD app.
 
 Forked form https://github.com/eyecreate/tracks
 
+Remember to have Docker Desktop running prior to running any of the Docker commands below.
+
 
 ## To Use via Docker from Docker Hub
 
@@ -14,6 +16,17 @@ docker run -p 80:80 eviltester/tracks
 
 https://hub.docker.com/r/eviltester/tracks/tags
 
+For version 2.3.0 of tracks
+
+```
+docker run -p 80:80 eviltester/tracks:2.3.0
+```
+
+Tracks will then be running on port 80
+
+```
+http://localhost:80
+```
 
 
 ## To Use via Docker Locally
@@ -71,35 +84,40 @@ http://localhost:3000
 
 
 
-Tracks
+## Versions
+
+The `versions` directory contains docker files to build specific versions of tracks.
+
+These download the zip files from the tracks archive during the build process.
+
+Readme files are contained in the folders.
+
+These have been released as tagged versions to docker hub.
+
+
+### Tracks v 2.3.0
+
+```
+docker run -p 80:80 eviltester/tracks:2.3.0
+```
+
+### Tracks v 2.2.3
+
+```
+docker run -p 80:80 eviltester/tracks:2.2.3
+```
+
+Tracks 2.3.0
 ======
 
-Tracks is a web-based application to help you implement David Allens Getting Things Done™ methodology. It was built using Ruby on Rails.
+Tracks is a web-based application modelling Allen's Getting Things Done methodology.
 
-This is the easy way getting up and running with Tracks, which is one of the greatest software implementations of the GTD™ methodology.
+https://www.getontracks.org/
 
-This builds main parts are:
- - Tracks 2.3.0 (stable)
- - Ubuntu 14.04 
- - Apache 2 (Passenger)
- - Sqlite3
- - Dockerize (Utility to simplify running applications in docker containers)
 
-It utilizes mostly native Ubuntu 14.04 packages, thus rebuilding it will provide the latest updates.
-
-Setting these docker environment variables will allow you to substitute you custom values into the templates at runtime:
-
-TRACKS_TOKEN
-
-TRACKS_DB
-
-Example on how to run the Tracks container:
-
-     docker run -d --name=tracks -e TRACKS_TOKEN=asdskldmwslkdafniowfno232233 -p 80:80 eyecreate/tracks
-
+This repo was forked and based on https://github.com/eyecreate/tracks
 
  
 
-References:
-http://www.getontracks.org/
+
 
